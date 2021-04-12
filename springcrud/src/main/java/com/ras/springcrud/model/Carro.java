@@ -1,16 +1,21 @@
 package com.ras.springcrud.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Carro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     @Column(nullable = false)
     private String marca;
+    @NotBlank
     @Column(nullable = false)
     private String modelo;
+    @NotNull
     @Column(nullable = false)
     private Integer ano;
 

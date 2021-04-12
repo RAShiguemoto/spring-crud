@@ -17,21 +17,24 @@
     <p class="fs-1">Formulário</p>
 </div>
 
-<form action="salvar" method="post">
+<form th:object="${carro}" action="salvar" method="post">
     <div class="container">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="marca" placeholder="Marca" name="marca">
+            <input type="text" class="form-control" th:errorclass="is-invalid" id="marca" placeholder="Marca" th:field="*{marca}">
             <label for="marca">Marca:</label>
+            <div class="invalid-feedback" th:errors="*{marca}"></div>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="modelo" placeholder="modelo" name="modelo">
+            <input type="text" class="form-control" th:errorclass="is-invalid" id="modelo" placeholder="modelo" th:field="*{modelo}">
             <label for="modelo">Modelo:</label>
+            <div class="invalid-feedback" th:errors="*{modelo}"></div>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="ano" placeholder="ano" name="ano">
+            <input type="number" class="form-control" th:errorclass="is-invalid" id="ano" placeholder="ano" th:field="*{ano}">
             <label for="ano">Ano:</label>
+            <div class="invalid-feedback" th:errors="*{ano}"></div>
         </div>
     </div>
 
