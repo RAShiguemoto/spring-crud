@@ -17,7 +17,7 @@
     <p class="fs-1">Formulário</p>
 </div>
 
-<form th:object="${carro}" action="save" method="post">
+<form th:object="${carro}" th:action="@{/carros/update/{id}(id = ${carro.id})}" method="post">
     <div class="container">
         <div class="form-floating mb-3">
             <input type="text" class="form-control" th:errorclass="is-invalid" id="marca" placeholder="Marca" th:field="*{marca}">
