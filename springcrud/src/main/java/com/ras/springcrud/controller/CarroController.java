@@ -3,6 +3,7 @@ package com.ras.springcrud.controller;
 import com.ras.springcrud.model.Carro;
 import com.ras.springcrud.repository.CarroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -71,6 +72,18 @@ public class CarroController {
             System.out.println("*** Id: " + id);
             carro.setId(id);
             this.carroRepository.save(carro);
+            return new ModelAndView("redirect:/carros/list");
+        }
+    }
+
+    @GetMapping("/delete/{id}")
+    public ModelAndView delete(@PathVariable Long id) {
+        try {
+            this.carroRepository.deleteById(id);
+            return new ModelAndView("redirect:/carros/list");
+
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println(e);
             return new ModelAndView("redirect:/carros/list");
         }
     }

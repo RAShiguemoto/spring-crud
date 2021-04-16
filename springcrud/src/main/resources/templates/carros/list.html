@@ -14,6 +14,7 @@
             <th scope="col">MODELO</th>
             <th scope="col">ANO</th>
             <th scope="col">EDITAR</th>
+            <th scope="col">EXCLUIR</th>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +26,11 @@
             <td>
                 <a th:href="@{/carros/edit/{id}(id = ${carro.id})}">
                     <i class="bi bi-pencil-square" style="font-size: 1.3rem; color: cornflowerblue;"></i>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{/carros/delete/{id}(id = ${carro.id})}">
+                    <i class="bi bi-trash" style="font-size: 1.3rem; color: cornflowerblue;"></i>
                 </a>
             </td>
         </tr>
